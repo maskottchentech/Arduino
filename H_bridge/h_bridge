@@ -1,0 +1,67 @@
+int A = 5;
+int B = 6;
+void setup() {
+Serial.begin(9600);
+pinMode(A, OUTPUT);
+pinMode(B, OUTPUT);
+//pinMode(A0, INPUT);
+//pinMode(A1, INPUT);
+}
+
+void loop() {
+  //float voltage1;
+  //float voltage2;
+ /*digitalWrite(A,HIGH);
+ digitalWrite(B,LOW);
+ delay(2000);
+ digitalWrite(A,LOW);
+ digitalWrite(B,HIGH);
+ delay(2000);*/
+ 
+  for(int i = 0; i<=100; i++){
+    analogWrite(A,i);
+    analogWrite(B,0);
+    delay(300); 
+    //int a = analogRead(A0);
+    //voltage1 = a * (2 / 1023.0);    
+    //Serial.print("V1    ");
+    //Serial.print(voltage1);
+    //Serial.println(a);
+   
+  }
+  for(int i = 100; i>=0; i--){
+    analogWrite(A,i);
+    analogWrite(B,0);
+    delay(300); 
+    //int b = analogRead(A0);
+    //voltage1 = b * (1.2 / 1023.0);    
+    //Serial.print("V1    ");
+    //Serial.print(voltage1);
+    //Serial.println(b);
+   
+    
+  }
+  for(int i = 0; i<=100; i++){
+    analogWrite(B,i);
+    analogWrite(A,0);
+    delay(300); 
+    //int c = analogRead(A1);
+    //voltage2 = c * (2 / 1023.0);    
+    //Serial.print("V2    ");
+    //Serial.print(voltage2);
+    //Serial.println();
+    
+  }
+    for(int i = 100; i>=0; i--){
+    analogWrite(B,i);
+    analogWrite(A,0);
+    delay(300); 
+    //int d = analogRead(A1);
+    //voltage2 = d * (2 / 1023.0);    
+    //Serial.print("V2    ");
+    //Serial.print(voltage2);
+    //Serial.println();
+    
+  }
+ 
+}
