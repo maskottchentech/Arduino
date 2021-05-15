@@ -1,0 +1,72 @@
+#include "max6675.h" // max6675.h file is part of the library that you should download from Robojax.com
+
+#include <Wire.h>
+//#include <Adafruit_SSD1306.h>
+//#include <Adafruit_GFX.h>
+
+//#define OLED_ADDR   0x3C
+
+//Adafruit_SSD1306 display(-1);
+
+
+
+int soPin = 8;// SO=Serial Out
+int csPin = 9;// CS = chip select CS pin
+int sckPin = 10;// SCK = Serial Clock pin
+MAX6675 robojax(sckPin, csPin, soPin);// create instance object of MAX6675
+/*
+int soPin1 = 9;// SO=Serial Out
+int csPin1 = 8;// CS = chip select CS pin
+int sckPin1 = 7;// SCK = Serial Clock pin
+MAX6675 robojax1(sckPin1, csPin1, soPin1);// create instance object of MAX6675
+*/
+void setup() {
+  Serial.begin(9600);// initialize serial monitor with 9600 baud
+  Serial.println("Robojax MAX6675"); 
+/*
+   // initialize and clear display
+  display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR);
+  display.clearDisplay();
+  display.display();
+
+  // display a pixel in each corner of the screen
+  display.drawPixel(0, 0, WHITE);
+  display.drawPixel(127, 0, WHITE);
+  display.drawPixel(0, 63, WHITE);
+  display.drawPixel(127, 63, WHITE);
+
+  // display a line of text
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(27,15);
+  display.print("Hello, world!");
+
+  // update display with all of the above graphics
+  display.display();
+*/
+}
+
+void loop() {
+  // basic readout test, just print the current temp
+  // Robojax.com MAX6675 Temperature reading on Serial monitor
+  Serial.print("C = "); 
+  Serial.print(robojax.readCelsius());
+  Serial.print(" F = ");
+  Serial.println(robojax.readFahrenheit());
+ /*  
+  Serial.print("C1 = "); 
+  Serial.print(robojax1.readCelsius());
+  Serial.print(" F1 = ");
+  Serial.println(robojax1.readFahrenheit());
+  */
+  /*display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(27,15);
+  display.print(robojax.readCelsius());
+  display.print(" ");
+  display.print(robojax1.readFahrenheit());
+  // update display with all of the above graphics
+  display.display();
+  display.clearDisplay(); */   
+  delay(200);
+}
